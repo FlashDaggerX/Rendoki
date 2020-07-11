@@ -23,9 +23,9 @@ __meta__ = {
 }
 
 [node name="GameControls" type="VBoxContainer" parent="UI/Control"]
-margin_left = 47.0219
+margin_left = 47.0
 margin_top = 39.0
-margin_right = 136.022
+margin_right = 135.0
 margin_bottom = 178.0
 script = ExtResource( 10 )
 __meta__ = {
@@ -34,14 +34,14 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="UI/Control/GameControls"]
-margin_right = 89.0
+margin_right = 88.0
 margin_bottom = 14.0
 text = "Controls"
 align = 1
 
 [node name="ControlStatus" type="HBoxContainer" parent="UI/Control/GameControls"]
 margin_top = 18.0
-margin_right = 89.0
+margin_right = 88.0
 margin_bottom = 139.0
 size_flags_vertical = 3
 
@@ -94,48 +94,48 @@ texture = ExtResource( 8 )
 
 [node name="Actions" type="VBoxContainer" parent="UI/Control/GameControls/ControlStatus"]
 margin_left = 25.0
-margin_right = 89.0
+margin_right = 88.0
 margin_bottom = 121.0
 size_flags_horizontal = 3
 custom_constants/separation = 7
 
-[node name="RenMenu" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
-margin_right = 64.0
+[node name="ESC" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
+margin_right = 63.0
 margin_bottom = 14.0
 text = "Menu"
 align = 1
 
-[node name="RenUp" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
+[node name="W" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
 margin_top = 21.0
-margin_right = 64.0
+margin_right = 63.0
 margin_bottom = 35.0
 text = "Up"
 align = 1
 
-[node name="RenDown" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
+[node name="S" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
 margin_top = 42.0
-margin_right = 64.0
+margin_right = 63.0
 margin_bottom = 56.0
 text = "Down"
 align = 1
 
-[node name="RenLeft" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
+[node name="A" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
 margin_top = 63.0
-margin_right = 64.0
+margin_right = 63.0
 margin_bottom = 77.0
 text = "Left"
 align = 1
 
-[node name="RenRight" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
+[node name="D" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
 margin_top = 84.0
-margin_right = 64.0
+margin_right = 63.0
 margin_bottom = 98.0
 text = "Right"
 align = 1
 
-[node name="RenUse" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
+[node name="E" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
 margin_top = 105.0
-margin_right = 64.0
+margin_right = 63.0
 margin_bottom = 119.0
 text = "Use"
 align = 1
