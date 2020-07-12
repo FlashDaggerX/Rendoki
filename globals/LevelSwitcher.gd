@@ -10,11 +10,9 @@ signal failed
 
 const MAIN_SCENE = preload("res://main/Main.tscn")
 
-onready var _main = get_node("/root/Main")
-
 
 func switch_level(scene):
-	var last_level = _main.get_child(_main.get_child_count() - 1)
+	var last_level = get_main().get_child(get_main().get_child_count() - 1)
 	
 	if not scene:
 		emit_signal("failed")
@@ -27,14 +25,20 @@ func switch_level(scene):
 	yield(get_tree(), "tree_changed")
 	
 	emit_signal("switching")
-	_main.add_child(new_level)
+	get_main().add_child(new_level)
 
 
 func restart_current_level():
-	var level = _main.get_child(_main.get_child_count() - 1)
-	
+	var level = get_main().get_child(get_main().get_child_count() - 1)
 	if level.name == "Tutorial":
 		return
+	var new_level = load(level.filename)
 	
-	switch_level(load(level.filename))
+	get_tree().change_scene_to(MAIN_SCENE)
+	InputRandomizer.event_fix_all()
 	
+	switch_level(new_level)
+	
+
+func get_main():
+	return get_node("/root/Main")

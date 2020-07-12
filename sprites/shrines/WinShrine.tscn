@@ -9,7 +9,7 @@ script = ExtResource( 2 )
 
 [node name="ShrineAnimatedSprite" parent="." index="0"]
 modulate = Color( 0.862745, 0.337255, 0.705882, 1 )
-frame = 5
+frame = 10
 speed_scale = 1.2
 
 [node name="WinSprite" type="Sprite" parent="." index="2"]

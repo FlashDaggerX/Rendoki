@@ -9,9 +9,8 @@ func _unhandled_input(event):
 
 
 func _on_Restart_pressed():
-	#LevelSwitcher.restart_current_level()
-	#hide()
-	pass
+	LevelSwitcher.restart_current_level()
+	hide()
 
 
 func _on_Quit_pressed():

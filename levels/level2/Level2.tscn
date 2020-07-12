@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sprites/shrines/SwitchShrine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/LevelTemplate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/shrines/FixShrine.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/shrines/SnapShrine.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/level3/Level3.tscn" type="PackedScene" id=5]
 
 [node name="Level2" instance=ExtResource( 2 )]
 
@@ -12,6 +13,7 @@ tile_data = PoolIntArray( -196615, 0, 1, -196612, 0, 196608, -196611, 0, 196609,
 
 [node name="WinShrine" parent="." index="3"]
 position = Vector2( -21.6074, 72.2281 )
+next_level = ExtResource( 5 )
 
 [node name="SnapShrine" parent="." index="4" instance=ExtResource( 4 )]
 position = Vector2( -41.2505, -7.57661 )
