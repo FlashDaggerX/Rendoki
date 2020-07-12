@@ -28,7 +28,7 @@ func event_switch():
 	
 	var t_action = _randomize_action()
 	if t_action == f_action:
-		t_action = INIT_ACTIONS[0]
+		t_action = INIT_ACTIONS[3]
 	var new_key = _action_key(t_action)
 	
 	# TODO: Switches the display, but not the keybinding
@@ -56,8 +56,12 @@ func event_fix():
 
 func event_fix_all():
 	snapped_keys.clear()
-	fixes_remaining = 2
+	set_fixes(2)
 	emit_signal("all_fixed")
+
+
+func set_fixes(fix):
+	fixes_remaining = fix
 	emit_signal("fix_count_changed")
 
 

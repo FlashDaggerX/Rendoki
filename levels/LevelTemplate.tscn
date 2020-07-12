@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/tiles/level_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://sprites/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/shrines/WinShrine.tscn" type="PackedScene" id=3]
-[ext_resource path="res://levels/SwitchTimer.gd" type="Script" id=4]
+[ext_resource path="res://levels/LevelTemplate.gd" type="Script" id=4]
+[ext_resource path="res://levels/SwitchTimer.gd" type="Script" id=5]
 
 [node name="LevelTemplate" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="SwitchTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
-script = ExtResource( 4 )
+script = ExtResource( 5 )
+tick_switch_chance = 0.25
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

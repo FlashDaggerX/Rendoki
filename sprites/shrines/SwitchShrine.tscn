@@ -9,7 +9,7 @@ script = ExtResource( 3 )
 
 [node name="ShrineAnimatedSprite" parent="." index="0"]
 modulate = Color( 0.431373, 0.792157, 0.886275, 1 )
-frame = 9
+frame = 11
 
 [node name="SwitchSprite" type="Sprite" parent="." index="2"]
 position = Vector2( -2.98023e-08, 2.98023e-08 )
