@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/shrines/Shrine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/atlas_button_special_snap.tres" type="Texture" id=2]
+[ext_resource path="res://sprites/shrines/SnapShrine.gd" type="Script" id=3]
+
+[node name="SnapShrine" instance=ExtResource( 1 )]
+collision_mask = 2147483648
+script = ExtResource( 3 )
+
+[node name="ShrineAnimatedSprite" parent="." index="0"]
+modulate = Color( 1, 0.454902, 0.454902, 1 )
+frame = 1
+
+[node name="SnapSprite" type="Sprite" parent="." index="2"]
+scale = Vector2( 0.67, 0.67 )
+texture = ExtResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_SnapShrine_body_entered"]

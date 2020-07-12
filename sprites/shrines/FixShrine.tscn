@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/shrines/Shrine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/atlas_button_special_fix.tres" type="Texture" id=2]
+[ext_resource path="res://sprites/shrines/FixShrine.gd" type="Script" id=3]
+
+[node name="FixShrine" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="ShrineAnimatedSprite" parent="." index="0"]
+modulate = Color( 0.215686, 0.843137, 0.372549, 1 )
+frame = 1
+
+[node name="FixSprite" type="Sprite" parent="." index="2"]
+scale = Vector2( 0.67, 0.67 )
+texture = ExtResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_FixShrine_body_entered"]

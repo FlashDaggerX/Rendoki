@@ -5,6 +5,9 @@ extends Reference
 A reference file that holds texture constants.
 """
 
+const MOD_SNAP = Color.red
+const MOD_NORM = Color.white
+
 const TXT_SNAP = preload("res://assets/sprites/atlas_button_special_snap.tres")
 const TXT_FIX = preload("res://assets/sprites/atlas_button_special_fix.tres")
 const TXT_SWITCH = preload("res://assets/sprites/atlas_button_special_snap.tres")

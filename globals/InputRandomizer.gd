@@ -1,8 +1,12 @@
 extends Node
 
-signal switch (old_key, new_key)
-signal snap (key)
-signal fix (key)
+signal switched (old_key, new_key)
+signal snapped (key)
+signal fixed (key)
+
+var snapped_keys = []
+
+onready var INIT_ACTIONS = _get_available_actions()
 
 
 # Remaps the action according to the action list in $ControlStatus
@@ -15,22 +19,14 @@ func remap_action(action, key):
 
 
 func event_switch():
-	var avail_actions = []
-	if true: # New body for slicing actions into avail_actions
-		var actions = InputMap.get_actions()
-		# Uses 13 as a constant, because there are 13 actions we can't delete...
-		avail_actions = actions.slice(13, len(actions))
-	
-	randomize()
-	var f_action = avail_actions[randi() % len(avail_actions)]
+	var f_action = _randomize_action()
 	# Index 0, since we only use keyboard controls for now.
-	var old_key = InputMap.get_action_list(f_action)[0].get_scancode()
+	var old_key = _action_key(f_action)
 	
-	randomize()
-	var t_action = avail_actions[randi() % len(avail_actions)]
+	var t_action = _randomize_action()
 	if t_action == f_action:
-		t_action = avail_actions[0]
-	var new_key = InputMap.get_action_list(t_action)[0].get_scancode()
+		t_action = INIT_ACTIONS[0]
+	var new_key = _action_key(t_action)
 	
 	# TODO: Switches the display, but not the keybinding
 	print(f_action, new_key)
@@ -38,16 +34,40 @@ func event_switch():
 	remap_action(f_action, new_key)
 	remap_action(t_action, old_key)
 	
-	emit_signal("switch", old_key, new_key)
+	emit_signal("switched", old_key, new_key)
 
 
 func event_snap():
-	pass
+	var action = _randomize_action()
+	var key = _action_key(action)
+	
+	if not has_snapped(key):
+		snapped_keys.append(key)
+		emit_signal("snapped", key)
 
 
 func event_fix():
-	pass
+	if len(snapped_keys) != 0:
+		var key = snapped_keys.pop_back()
+		emit_signal("fixed", key)
 
 
-func has_snapped(action):
-	return not InputMap.has_action(action)
+func has_snapped(key):
+	return snapped_keys.has(key)
+
+
+func _randomize_action():
+	var avail_actions = _get_available_actions()
+	
+	randomize()
+	return avail_actions[randi() % len(avail_actions)]
+
+
+func _action_key(action):
+	return InputMap.get_action_list(action)[0].get_scancode()
+
+
+func _get_available_actions():
+	var actions = InputMap.get_actions()
+	# Uses 13 as a constant, because there are 13 actions we can't delete...
+	return actions.slice(13, len(actions))

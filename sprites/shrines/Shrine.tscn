@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/sheets/shrine_sheet.png" type="Texture" id=1]
+[ext_resource path="res://sprites/shrines/Shrine.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -63,14 +64,17 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 8, 8 )
+extents = Vector2( 4.36834, 4.18444 )
 
 [node name="Shrine" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 2 )
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
+[node name="ShrineAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 14 )
-frame = 4
+frame = 6
 playing = true
 
-[node name="Body" type="CollisionShape2D" parent="."]
+[node name="ShrineBody" type="CollisionShape2D" parent="."]
 shape = SubResource( 15 )

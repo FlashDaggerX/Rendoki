@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/shrines/Shrine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/atlas_button_special_switch.tres" type="Texture" id=2]
+[ext_resource path="res://sprites/shrines/SwitchShrine.gd" type="Script" id=3]
+
+[node name="SwitchShrine" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="ShrineAnimatedSprite" parent="." index="0"]
+modulate = Color( 0.431373, 0.792157, 0.886275, 1 )
+frame = 9
+
+[node name="SwitchSprite" type="Sprite" parent="." index="2"]
+position = Vector2( -2.98023e-08, 2.98023e-08 )
+scale = Vector2( 0.67, 0.67 )
+texture = ExtResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_SwitchShrine_body_entered"]
