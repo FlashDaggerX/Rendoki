@@ -27,13 +27,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Rendoki"
-run/main_scene="res://levels/Level.tscn"
+run/main_scene="res://main/Main.tscn"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
 [autoload]
 
 InputRandomizer="*res://globals/InputRandomizer.gd"
+LevelSwitcher="*res://globals/LevelSwitcher.gd"
 
 [display]
 

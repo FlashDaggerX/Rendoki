@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Control
 
 # In the order of $ControlStatus/Icons
 enum {A_ESC, A_W, A_S, A_A, A_D, A_E}
@@ -11,6 +11,7 @@ func _ready():
 	InputRandomizer.connect("switched", self, "_on_InputRandomizer_switched")
 	InputRandomizer.connect("snapped", self, "_on_InputRandomizer_snapped")
 	InputRandomizer.connect("fixed", self, "_on_InputRandomizer_fixed")
+	InputRandomizer.connect("all_fixed", self, "_on_InputRandomizer_all_fixed")
 
 
 func _on_InputRandomizer_switched(old_key, new_key):
@@ -34,6 +35,12 @@ func _on_InputRandomizer_fixed(key):
 	key = _translate_key(key)
 	
 	change_text_normal(key)
+
+
+func _on_InputRandomizer_all_fixed():
+	# Six for six keys
+	for key in range(6):
+		change_text_normal(key)
 
 
 # Moves the action label from f_key to t_key

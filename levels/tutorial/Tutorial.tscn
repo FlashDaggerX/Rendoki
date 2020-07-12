@@ -1,0 +1,207 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/sprites/atlas_button_dis_arrow_left.tres" type="Texture" id=1]
+[ext_resource path="res://assets/themes/default_theme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/sprites/atlas_button_dis_arrow_right.tres" type="Texture" id=3]
+[ext_resource path="res://sprites/shrines/SwitchShrine.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/shrines/SnapShrine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/shrines/FixShrine.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/LevelTemplate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/tutorial/Tutorial.gd" type="Script" id=8]
+[ext_resource path="res://assets/sprites/atlas_button_esc.tres" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/atlas_button_special_fix.tres" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/atlas_button_special_snap.tres" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/atlas_button_special_switch.tres" type="Texture" id=12]
+[ext_resource path="res://levels/level1/Level1.tscn" type="PackedScene" id=13]
+
+[node name="Tutorial" instance=ExtResource( 7 )]
+
+[node name="UI" type="CanvasLayer" parent="." index="0"]
+
+[node name="Tutorial" type="Panel" parent="UI" index="0"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -118.5
+margin_bottom = 118.5
+theme = ExtResource( 2 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="VBoxContainer" parent="UI/Tutorial" index="0"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -87.0
+margin_right = 87.0
+margin_bottom = 208.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P1" type="TextEdit" parent="UI/Tutorial/Content" index="0"]
+margin_right = 174.0
+margin_bottom = 208.0
+size_flags_vertical = 3
+text = "Welcome to Rendoki, the game where you can't control the controls!"
+readonly = true
+wrap_enabled = true
+
+[node name="P2" type="TextEdit" parent="UI/Tutorial/Content" index="1"]
+visible = false
+margin_right = 174.0
+margin_bottom = 208.0
+size_flags_vertical = 3
+text = "This game is all about getting through a level with the correct hotkeys. You, te player, are not in control of any of the shortcut keys. Win the level as fast as possible!"
+readonly = true
+wrap_enabled = true
+
+[node name="P3" type="TextEdit" parent="UI/Tutorial/Content" index="2"]
+visible = false
+margin_right = 174.0
+margin_bottom = 208.0
+size_flags_vertical = 3
+text = "In Rendoki, there are four key objects that can change the course of the game: 
+
+Switch!
+Snap!
+Fix!
+and Win!
+
+"
+readonly = true
+wrap_enabled = true
+
+[node name="Switch" type="TextureRect" parent="UI/Tutorial/Content/P3" index="6"]
+margin_left = 43.3093
+margin_top = 60.7637
+margin_right = 59.3093
+margin_bottom = 77.7637
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Snap" type="TextureRect" parent="UI/Tutorial/Content/P3" index="7"]
+margin_left = 30.3912
+margin_top = 76.0181
+margin_right = 46.3912
+margin_bottom = 93.0181
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fix" type="TextureRect" parent="UI/Tutorial/Content/P3" index="8"]
+margin_left = 25.0459
+margin_top = 92.0543
+margin_right = 41.0459
+margin_bottom = 109.054
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Win" type="TextureRect" parent="UI/Tutorial/Content/P3" index="9"]
+margin_left = 51.7729
+margin_top = 108.394
+margin_right = 72.7729
+margin_bottom = 125.394
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P4" type="TextEdit" parent="UI/Tutorial/Content" index="3"]
+visible = false
+margin_right = 174.0
+margin_bottom = 208.0
+size_flags_vertical = 3
+text = "But be careful... If you're not quick enough, you'll loose the ability to move at all! As time goes on, keys will Snap!, meaning they can't be pressed until they're Fixed!"
+readonly = true
+wrap_enabled = true
+
+[node name="P5" type="TextEdit" parent="UI/Tutorial/Content" index="4"]
+visible = false
+margin_right = 174.0
+margin_bottom = 208.0
+size_flags_vertical = 3
+text = "Find the exit before that happens. If you do, all the keys will be fixed for you. They'll still be randomized, though..."
+readonly = true
+wrap_enabled = true
+
+[node name="P6" type="TextEdit" parent="UI/Tutorial/Content" index="5"]
+visible = false
+margin_right = 174.0
+margin_bottom = 208.0
+size_flags_vertical = 3
+text = "That's all! Step on the Win! shrine to continue to the next level. Good luck!"
+readonly = true
+wrap_enabled = true
+
+[node name="Win" type="TextureRect" parent="UI/Tutorial/Content/P6" index="6"]
+margin_left = 74.0453
+margin_top = 76.7672
+margin_right = 95.0453
+margin_bottom = 93.7672
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pages" type="HBoxContainer" parent="UI/Tutorial" index="1"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -35.0
+margin_top = -29.0
+margin_right = 35.0
+size_flags_horizontal = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prev" type="TextureButton" parent="UI/Tutorial/Pages" index="0"]
+margin_right = 33.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 1 )
+expand = true
+
+[node name="Next" type="TextureButton" parent="UI/Tutorial/Pages" index="1"]
+margin_left = 37.0
+margin_right = 70.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="SwitchTimer" parent="." index="1"]
+autostart = false
+
+[node name="TileMap" parent="." index="2"]
+tile_data = PoolIntArray( -131076, 0, 393216, -131075, 0, 393217, -131074, 0, 393217, -131073, 0, 393217, -196608, 0, 393217, -196607, 0, 393217, -196606, 0, 393217, -196605, 0, 393217, -196604, 0, 393218, -65540, 0, 458752, -65539, 0, 458753, -65538, 0, 458753, -65537, 0, 458753, -131072, 0, 458753, -131071, 0, 458753, -131070, 0, 458753, -131069, 0, 458753, -131068, 0, 458754, -4, 0, 458752, -3, 0, 458753, -2, 0, 458753, -1, 0, 458753, -65536, 0, 458753, -65535, 0, 458753, -65534, 0, 458753, -65533, 0, 458753, -65532, 0, 458754, 65532, 0, 458752, 65533, 0, 458753, 65534, 0, 458753, 65535, 0, 458753, 0, 0, 458753, 1, 0, 458753, 2, 0, 458753, 3, 0, 458753, 4, 0, 458754, 131068, 0, 458752, 131069, 0, 458753, 131070, 0, 458753, 131071, 0, 458753, 65536, 0, 458753, 65537, 0, 458753, 65538, 0, 458753, 65539, 0, 458753, 65540, 0, 458754, 196604, 0, 458752, 196605, 0, 458753, 196606, 0, 458753, 196607, 0, 458753, 131072, 0, 458753, 131073, 0, 458753, 131074, 0, 458753, 131075, 0, 458753, 131076, 0, 458754, 262140, 0, 524288, 262141, 0, 524289, 262142, 0, 524289, 262143, 0, 524289, 196608, 0, 524289, 196609, 0, 524289, 196610, 0, 524289, 196611, 0, 524289, 196612, 0, 524290 )
+
+[node name="Player" parent="." index="3"]
+position = Vector2( 8.73071, 7.937 )
+
+[node name="SnapShrine" parent="." index="4" instance=ExtResource( 5 )]
+position = Vector2( 41.0364, 7.937 )
+
+[node name="SwitchShrine" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( 8.73071, 36.7521 )
+
+[node name="FixShrine" parent="." index="6" instance=ExtResource( 6 )]
+position = Vector2( 8.73071, -20.8654 )
+
+[node name="WinShrine" parent="." index="7"]
+position = Vector2( -21.4675, 7.937 )
+next_level = ExtResource( 13 )
+[connection signal="pressed" from="UI/Tutorial/Pages/Prev" to="UI/Tutorial" method="_on_Prev_pressed"]
+[connection signal="pressed" from="UI/Tutorial/Pages/Next" to="UI/Tutorial" method="_on_Next_pressed"]

@@ -3,6 +3,7 @@ extends Node
 signal switched (old_key, new_key)
 signal snapped (key)
 signal fixed (key)
+signal all_fixed
 
 var snapped_keys = []
 
@@ -50,6 +51,11 @@ func event_fix():
 	if len(snapped_keys) != 0:
 		var key = snapped_keys.pop_back()
 		emit_signal("fixed", key)
+
+
+func event_fix_all():
+	snapped_keys.clear()
+	emit_signal("all_fixed")
 
 
 func has_snapped(key):
