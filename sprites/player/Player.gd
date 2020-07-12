@@ -18,8 +18,9 @@ func _input(event):
 			direction = Vector2.LEFT
 		elif event.is_action_pressed("ren_right"):
 			direction = Vector2.RIGHT
-		elif event.is_action_pressed("ren_use"):
-			pass # Use is to collect a Fix! block
+		elif event.is_action_pressed("ui_focus_next"):
+			if InputRandomizer.get_remaining_fixes() > 0:
+				InputRandomizer.event_fix()
 
 
 func _physics_process(delta):

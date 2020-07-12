@@ -4,7 +4,9 @@ signal switched (old_key, new_key)
 signal snapped (key)
 signal fixed (key)
 signal all_fixed
+signal fix_count_changed
 
+var fixes_remaining = 2
 var snapped_keys = []
 
 onready var INIT_ACTIONS = _get_available_actions()
@@ -30,8 +32,6 @@ func event_switch():
 	var new_key = _action_key(t_action)
 	
 	# TODO: Switches the display, but not the keybinding
-	print(f_action, new_key)
-	print(t_action, old_key)
 	remap_action(f_action, new_key)
 	remap_action(t_action, old_key)
 	
@@ -50,12 +50,29 @@ func event_snap():
 func event_fix():
 	if len(snapped_keys) != 0:
 		var key = snapped_keys.pop_back()
+		remove_fix()
 		emit_signal("fixed", key)
 
 
 func event_fix_all():
 	snapped_keys.clear()
+	fixes_remaining = 2
 	emit_signal("all_fixed")
+	emit_signal("fix_count_changed")
+
+
+func add_fix():
+	fixes_remaining += 1
+	emit_signal("fix_count_changed")
+
+
+func remove_fix():
+	fixes_remaining -= 1
+	emit_signal("fix_count_changed")
+
+
+func get_remaining_fixes():
+	return fixes_remaining
 
 
 func has_snapped(key):

@@ -1,10 +1,11 @@
 extends Control
 
 # In the order of $ControlStatus/Icons
-enum {A_ESC, A_W, A_S, A_A, A_D, A_E}
+enum {A_ESC, A_E, A_W, A_S, A_A, A_D}
 
 onready var _actic = $ControlStatus/Icons
 onready var _actui = $ControlStatus/Actions
+onready var _fixct = $Fixes
 
 
 func _ready():
@@ -12,6 +13,7 @@ func _ready():
 	InputRandomizer.connect("snapped", self, "_on_InputRandomizer_snapped")
 	InputRandomizer.connect("fixed", self, "_on_InputRandomizer_fixed")
 	InputRandomizer.connect("all_fixed", self, "_on_InputRandomizer_all_fixed")
+	InputRandomizer.connect("fix_count_changed", self, "_on_InputRandomizer_fix_count_changed")
 
 
 func _on_InputRandomizer_switched(old_key, new_key):
@@ -41,6 +43,10 @@ func _on_InputRandomizer_all_fixed():
 	# Six for six keys
 	for key in range(6):
 		change_text_normal(key)
+
+
+func _on_InputRandomizer_fix_count_changed():
+	_fixct.set_text("Fix! Uses: " + str(InputRandomizer.get_remaining_fixes()))
 
 
 # Moves the action label from f_key to t_key
@@ -88,9 +94,6 @@ func change_text_normal(key):
 		A_D: 
 			node = _actic.get_child(A_D)
 			texture = KeyTextures.TXT_D
-		A_E: 
-			node = _actic.get_child(A_E)
-			texture = KeyTextures.TXT_E
 		_: return
 	
 	node.set_texture(texture)

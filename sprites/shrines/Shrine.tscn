@@ -64,7 +64,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 4.36834, 4.18444 )
+extents = Vector2( 4, 4 )
 
 [node name="Shrine" type="Area2D"]
 collision_layer = 2
@@ -73,7 +73,7 @@ script = ExtResource( 2 )
 
 [node name="ShrineAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 14 )
-frame = 6
+frame = 1
 playing = true
 
 [node name="ShrineBody" type="CollisionShape2D" parent="."]

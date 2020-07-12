@@ -9,7 +9,7 @@ script = ExtResource( 3 )
 
 [node name="ShrineAnimatedSprite" parent="." index="0"]
 modulate = Color( 0.215686, 0.843137, 0.372549, 1 )
-frame = 1
+frame = 6
 
 [node name="FixSprite" type="Sprite" parent="." index="2"]
 scale = Vector2( 0.67, 0.67 )

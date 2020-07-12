@@ -15,6 +15,9 @@ func switch_level(scene):
 	var new_level = scene.instance()
 	
 	last_level.queue_free()
+	# Yield is used here to prevent bad scene states (Godot was complaining)
+	yield(get_tree(), "tree_changed")
+	
 	emit_signal("switching")
 	_main.add_child(new_level)
 	

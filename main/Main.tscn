@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/sprites/atlas_button_w.tres" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/atlas_button_a.tres" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/atlas_button_s.tres" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/atlas_button_e.tres" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/atlas_button_tab.tres" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/atlas_button_d.tres" type="Texture" id=7]
 [ext_resource path="res://levels/tutorial/Tutorial.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/themes/default_theme.tres" type="Theme" id=9]
@@ -49,6 +49,9 @@ margin_top = -72.5
 margin_right = 36.0
 margin_bottom = 72.5
 size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Icons" type="VBoxContainer" parent="UI/Control/GameControls/ControlStatus"]
 margin_top = 10.0
@@ -64,39 +67,39 @@ __meta__ = {
 }
 
 [node name="ESC" type="TextureRect" parent="UI/Control/GameControls/ControlStatus/Icons"]
-margin_right = 21.0
+margin_right = 32.0
 margin_bottom = 16.0
 texture = ExtResource( 1 )
 
-[node name="W" type="TextureRect" parent="UI/Control/GameControls/ControlStatus/Icons"]
+[node name="TAB" type="TextureRect" parent="UI/Control/GameControls/ControlStatus/Icons"]
 margin_top = 22.0
-margin_right = 21.0
+margin_right = 32.0
 margin_bottom = 38.0
+texture = ExtResource( 6 )
+
+[node name="W" type="TextureRect" parent="UI/Control/GameControls/ControlStatus/Icons"]
+margin_top = 44.0
+margin_right = 32.0
+margin_bottom = 60.0
 texture = ExtResource( 3 )
 
 [node name="S" type="TextureRect" parent="UI/Control/GameControls/ControlStatus/Icons"]
-margin_top = 44.0
-margin_right = 21.0
-margin_bottom = 60.0
+margin_top = 66.0
+margin_right = 32.0
+margin_bottom = 82.0
 texture = ExtResource( 5 )
 
 [node name="A" type="TextureRect" parent="UI/Control/GameControls/ControlStatus/Icons"]
-margin_top = 66.0
-margin_right = 21.0
-margin_bottom = 82.0
+margin_top = 88.0
+margin_right = 32.0
+margin_bottom = 104.0
 texture = ExtResource( 4 )
 
 [node name="D" type="TextureRect" parent="UI/Control/GameControls/ControlStatus/Icons"]
-margin_top = 88.0
-margin_right = 21.0
-margin_bottom = 104.0
-texture = ExtResource( 7 )
-
-[node name="E" type="TextureRect" parent="UI/Control/GameControls/ControlStatus/Icons"]
 margin_top = 110.0
-margin_right = 21.0
+margin_right = 32.0
 margin_bottom = 126.0
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Actions" type="VBoxContainer" parent="UI/Control/GameControls/ControlStatus"]
 anchor_left = 1.0
@@ -117,40 +120,56 @@ margin_bottom = 24.0
 text = "Menu"
 align = 1
 
-[node name="W" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
+[node name="TAB" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
 margin_top = 23.0
 margin_right = 38.0
 margin_bottom = 47.0
+text = "Use"
+align = 1
+
+[node name="W" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
+margin_top = 46.0
+margin_right = 38.0
+margin_bottom = 70.0
 text = "Up"
 align = 1
 
 [node name="S" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
-margin_top = 46.0
+margin_top = 69.0
 margin_right = 38.0
-margin_bottom = 70.0
+margin_bottom = 93.0
 text = "Down"
 align = 1
 
 [node name="A" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
-margin_top = 69.0
+margin_top = 92.0
 margin_right = 38.0
-margin_bottom = 93.0
+margin_bottom = 116.0
 text = "Left"
 align = 1
 
 [node name="D" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
-margin_top = 92.0
-margin_right = 38.0
-margin_bottom = 116.0
-text = "Right"
-align = 1
-
-[node name="E" type="Label" parent="UI/Control/GameControls/ControlStatus/Actions"]
 margin_top = 115.0
 margin_right = 38.0
 margin_bottom = 139.0
-text = "Use"
+text = "Right"
 align = 1
+
+[node name="Fixes" type="Label" parent="UI/Control/GameControls"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -45.5003
+margin_top = -24.0004
+margin_right = 45.4997
+margin_bottom = -0.000396729
+text = "Fix! Uses: 2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Popup" type="Control" parent="UI/Control"]
 anchor_left = 0.5

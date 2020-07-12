@@ -139,11 +139,20 @@ visible = false
 margin_right = 174.0
 margin_bottom = 208.0
 size_flags_vertical = 3
+text = "Be on the lookout for the black shrines. These shrines don't despawn when you touch them."
+readonly = true
+wrap_enabled = true
+
+[node name="P7" type="TextEdit" parent="UI/Tutorial/Content" index="6"]
+visible = false
+margin_right = 174.0
+margin_bottom = 208.0
+size_flags_vertical = 3
 text = "That's all! Step on the Win! shrine to continue to the next level. Good luck!"
 readonly = true
 wrap_enabled = true
 
-[node name="Win" type="TextureRect" parent="UI/Tutorial/Content/P6" index="6"]
+[node name="Win" type="TextureRect" parent="UI/Tutorial/Content/P7" index="6"]
 margin_left = 74.0453
 margin_top = 76.7672
 margin_right = 95.0453
