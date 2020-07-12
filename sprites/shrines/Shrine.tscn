@@ -73,7 +73,7 @@ script = ExtResource( 2 )
 
 [node name="ShrineAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 14 )
-frame = 1
+frame = 9
 playing = true
 
 [node name="ShrineBody" type="CollisionShape2D" parent="."]

@@ -9,8 +9,13 @@ signal fix_count_changed
 var fixes_remaining = 2
 var snapped_keys = []
 
+var audio
 onready var INIT_ACTIONS = _get_available_actions()
 
+
+func _ready():
+	audio = AudioStreamPlayer2D.new()
+	add_child(audio)
 
 # Remaps the action according to the action list in $ControlStatus
 func remap_action(action, key):
@@ -31,10 +36,14 @@ func event_switch():
 		t_action = INIT_ACTIONS[3]
 	var new_key = _action_key(t_action)
 	
+	if has_snapped(new_key) or has_snapped(old_key):
+		return
+	
 	# TODO: Switches the display, but not the keybinding
 	remap_action(f_action, new_key)
 	remap_action(t_action, old_key)
 	
+	_play_audio(AudioFile.SWITCH)
 	emit_signal("switched", old_key, new_key)
 
 
@@ -44,6 +53,7 @@ func event_snap():
 	
 	if not has_snapped(key):
 		snapped_keys.append(key)
+		_play_audio(AudioFile.SNAP)
 		emit_signal("snapped", key)
 
 
@@ -51,6 +61,7 @@ func event_fix():
 	if len(snapped_keys) != 0:
 		var key = snapped_keys.pop_back()
 		remove_fix()
+		_play_audio(AudioFile.FIX)
 		emit_signal("fixed", key)
 
 
@@ -81,6 +92,11 @@ func get_remaining_fixes():
 
 func has_snapped(key):
 	return snapped_keys.has(key)
+
+
+func _play_audio(file):
+	audio.set_stream(file)
+	audio.play()
 
 
 func _randomize_action():

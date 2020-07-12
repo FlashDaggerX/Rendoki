@@ -2,7 +2,10 @@ extends KinematicBody2D
 
 var direction = Vector2.ZERO
 
-export(int) var move_modifier = 300
+onready var _mma = $MovementAnimator
+
+export(int) var move_modifier = 50
+export(float) var move_time = .15
 
 
 func _input(event):
@@ -25,5 +28,15 @@ func _input(event):
 
 func _physics_process(delta):
 	if direction != Vector2.ZERO:
-		move_and_slide(direction * move_modifier)
+		var dscale = $Sprite.scale
+		_mma.interpolate_property($Sprite, "scale", 
+				null, dscale / 2, 
+				move_time, Tween.TRANS_QUAD)
+		_mma.interpolate_method(self, "move_and_slide", 
+				direction, direction * move_modifier, 
+				move_time, Tween.TRANS_QUAD)
+		_mma.interpolate_property($Sprite, "scale", 
+				null, dscale, 
+				move_time, Tween.TRANS_QUAD)
+		_mma.start()
 		direction = Vector2.ZERO

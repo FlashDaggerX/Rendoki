@@ -10,9 +10,9 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
-"class": "KeyInfo",
+"class": "AudioFile",
 "language": "GDScript",
-"path": "res://globals/KeyInfo.gd"
+"path": "res://globals/AudioFile.gd"
 }, {
 "base": "Reference",
 "class": "KeyTextures",
@@ -20,7 +20,7 @@ _global_script_classes=[ {
 "path": "res://globals/KeyTextures.gd"
 } ]
 _global_script_class_icons={
-"KeyInfo": "",
+"AudioFile": "",
 "KeyTextures": ""
 }
 

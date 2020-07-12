@@ -41,3 +41,11 @@ Made by [Fenner Macrae](https://github.com/fennerm)
 Hosted on [github.com](https://github.com/fennerm/artwiz-lemon-ttf)
 
 ---
+
+### 8-bit / 16-bit Sound Effects
+Made by [JDWasabi](https://jdwasabi.itch.io/)
+
+Hosted on [itch.io](https://jdwasabi.itch.io/8-bit-16-bit-sound-effects-pack)
+
+---
+
